@@ -89,6 +89,10 @@ dependencies {
     // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:20.6.0")
 
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    // Required only if Facebook login support is required
+    // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
+    //implementation 'com.facebook.android:facebook-android-sdk:8.x'
 
     //TODO:Check all the below and keep adding these to your project
 //    https://firebase.google.com/docs/auth/android/password-auth
