@@ -1,4 +1,4 @@
-package com.ladkeindia.ladkeandroid.data.jobseeker
+package com.ladkeindia.ladkeandroid.data.jobseeker.model
 
 import java.util.Date
 
