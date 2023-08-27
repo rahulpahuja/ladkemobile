@@ -1,5 +1,6 @@
 package com.ladkeindia.ladkeandroid.data.jobseeker
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -12,14 +13,17 @@ import com.ladkeindia.ladkeandroid.data.jobseeker.model.JobSeeker
 interface JobSeekerDao {
 
     @Insert
-    fun addJobSeeker(jobSeeker: JobSeeker)
+    suspend fun addJobSeeker(jobSeeker: JobSeeker)
 
     @Update
-    fun updateJobSeeker(jobSeeker: JobSeeker)
+    suspend fun updateJobSeeker(jobSeeker: JobSeeker)
 
     @Delete
-    fun deleteJobSeeker(jobSeeker: JobSeeker)
+    suspend fun deleteJobSeeker(jobSeeker: JobSeeker)
 
     @Query("Select * from JobSeeker where id=:jobSeekerId")
-    fun getJobSeeker(jobSeekerId: String)
+    fun getJobSeeker(jobSeekerId: String):LiveData<JobSeeker>
+
+    @Query("Select * from JobSeeker")
+    fun getAllJobSeeker():LiveData<List<JobSeeker>>
 }

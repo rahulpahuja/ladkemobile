@@ -23,9 +23,17 @@ import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
 import com.ladkeindia.ladkeandroid.data.jobseeker.DatabaseSingleton
 import com.ladkeindia.ladkeandroid.data.jobseeker.JobSeekerDatabase
+import com.ladkeindia.ladkeandroid.data.jobseeker.model.JobDetail
+import com.ladkeindia.ladkeandroid.data.jobseeker.model.JobPreference
+import com.ladkeindia.ladkeandroid.data.jobseeker.model.JobSeeker
+import com.ladkeindia.ladkeandroid.data.jobseeker.model.Location
+import com.ladkeindia.ladkeandroid.data.jobseeker.model.Skill
 import com.ladkeindia.ladkeandroid.ui.theme.LadkeandroidTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 typealias Id = Int
 class MainActivity : ComponentActivity() {
@@ -42,7 +50,23 @@ class MainActivity : ComponentActivity() {
             //AuthUI.IdpConfig.TwitterBuilder().build(),
         )
 
+
+
         var db = DatabaseSingleton().instance
+
+        db.jobSeekerDao().getJobSeeker("1")
+
+        GlobalScope.launch {
+            withContext(Dispatchers.IO) {
+//                db.jobSeekerDao().addJobSeeker(JobSeeker(1,"Rahul",31, Location("Indore","MP","India"),Location("Indore","MP","India"),Array<JobDetail>(),
+//                    JobPreference("1",),Array<Skill>())
+
+
+            }
+        }
+
+
+
 
 
         // Create and launch sign-in intent
