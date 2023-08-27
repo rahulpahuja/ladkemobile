@@ -15,21 +15,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
-import com.ladkeindia.ladkeandroid.data.jobseeker.DatabaseSingleton
 import com.ladkeindia.ladkeandroid.data.jobseeker.JobSeekerDatabase
-import com.ladkeindia.ladkeandroid.data.jobseeker.model.JobDetail
-import com.ladkeindia.ladkeandroid.data.jobseeker.model.JobPreference
-import com.ladkeindia.ladkeandroid.data.jobseeker.model.JobSeeker
-import com.ladkeindia.ladkeandroid.data.jobseeker.model.Location
-import com.ladkeindia.ladkeandroid.data.jobseeker.model.Skill
 import com.ladkeindia.ladkeandroid.ui.theme.LadkeandroidTheme
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -52,9 +43,8 @@ class MainActivity : ComponentActivity() {
 
 
 
-        var db = DatabaseSingleton().instance
-
-        db.jobSeekerDao().getJobSeeker("1")
+        var db = JobSeekerDatabase.getInstance(this)
+        val jobSeeker = db.jobSeekerDao().getJobSeeker("1")
 
         GlobalScope.launch {
             withContext(Dispatchers.IO) {
