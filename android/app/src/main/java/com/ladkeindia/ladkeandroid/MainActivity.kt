@@ -15,10 +15,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
+import com.ladkeindia.ladkeandroid.data.jobseeker.DatabaseSingleton
+import com.ladkeindia.ladkeandroid.data.jobseeker.JobSeekerDatabase
 import com.ladkeindia.ladkeandroid.ui.theme.LadkeandroidTheme
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,6 +42,7 @@ class MainActivity : ComponentActivity() {
             //AuthUI.IdpConfig.TwitterBuilder().build(),
         )
 
+        var db = DatabaseSingleton().instance
 
 
         // Create and launch sign-in intent
