@@ -1,6 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    id 'kotlin-kapt'
+    id 'kotlin-android'
+    // Add the Google services Gradle plugin
+    id 'com.google.gms.google-services'
+
 }
 
 android {
@@ -17,6 +23,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true"
+                ]
+            }
         }
     }
 
@@ -63,4 +77,61 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+
+    //Adding dependency for email password auth
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
+
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+
+    // Add the dependencies for any other desired Firebase products
+    // https://firebase.google.com/docs/android/setup#available-libraries
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-auth-ktx")
+
+    //GOOGLE AUTH
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation("com.google.android.gms:play-services-auth:20.6.0")
+
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    // Required only if Facebook login support is required
+    // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
+    //implementation 'com.facebook.android:facebook-android-sdk:8.x'
+
+    //TODO:Check all the below and keep adding these to your project
+//    https://firebase.google.com/docs/auth/android/password-auth
+//    https://firebase.google.com/docs/auth/android/google-signin#java_1
+//    https://firebase.google.com/docs/auth/android/facebook-login
+//    https://firebase.google.com/docs/auth/android/twitter-login
+//    https://firebase.google.com/docs/auth/android/phone-auth
+
+
+
+    def room_version = "2.5.1"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+
+    def coroutinesVersion = "1.5.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+
+//    def room_version = "2.5.2"
+//
+//    implementation "androidx.room:room-runtime:$room_version"
+//    annotationProcessor "androidx.room:room-compiler:$room_version"
+//
+//    // To use Kotlin annotation processing tool (kapt)
+//    kapt "androidx.room:room-compiler:$room_version"
+//    // To use Kotlin Symbol Processing (KSP)
+//    ksp "androidx.room:room-compiler:$room_version"
 }

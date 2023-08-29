@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "currentLocation": {
+      "type": "object"
+    },
+    "nativeLocation": {
+      "type": "object"
+    },
+    "previousJobDetails": {
+      "type": "object"
+    },
+    "jobPreference": {
+      "type": "object"
+    },
+    "skills": {
+      "type": "array"
+    },
+    "id": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "727195633285",
+    "project_id": "ladkeindia-1bbe7",
+    "storage_bucket": "ladkeindia-1bbe7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727195633285:android:ec4a8eeb0d25328f590bec",
+        "android_client_info": {
+          "package_name": "com.ladkeindia.ladkeandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727195633285-aju6ciut3idedg92uds90pt0occg2bjt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGzX42S89XqIzWCyz2tphKNONf7g8im6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727195633285-aju6ciut3idedg92uds90pt0occg2bjt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
